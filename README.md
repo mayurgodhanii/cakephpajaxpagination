@@ -6,13 +6,13 @@ Set up your HTML markup.
 <table class="ajax-pagination">
     <thead>
         <tr>
-            <th><a href="#">Sr. <i class="icon-sort"></i></a></th>
-            <th><a href="#">Inquiry Id <i class="icon-sort"></i></a></th>
+            <th><a href="#">Sr. <i class="icon-sort"></i></a></th>            
             <th><a href="#" class="desc">Inquiry Date <i class="icon-sort-up"></i></a></th>
             <th><a href="#">Name <i class="icon-sort"></i></a></th>
             <th><a href="#">Email <i class="icon-sort"></i></a></th>
             <th><a href="#">Budget <i class="icon-sort"></i></a></th>
             <th><a href="#">Contact No <i class="icon-sort"></i></a></th>
+            <th><a href="#">Location <i class="icon-sort"></i></a></th>
         </tr>
     </thead>
     <tbody>                            
