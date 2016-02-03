@@ -1,4 +1,4 @@
-# cakephpajaxpagination
+# Ajax pagination
 Cakephp Ajax Pagination with paginator
 
 Set up your HTML markup.
