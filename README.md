@@ -3,6 +3,7 @@ Cakephp Ajax Pagination with paginator
 
 Set up your HTML markup.
 
+```
 <table class="ajax-pagination">
     <thead>
         <tr>
@@ -85,6 +86,7 @@ Set up your HTML markup.
         </div>                    
     </div>
 </div>
+```
 
 Move the /cakephpAjaxPagination js into your project
 
@@ -98,6 +100,7 @@ Initialize your cakephpAjaxPagination in your script file or an inline script ta
     
 When complete, your HTML should look something like:
 
+```
 <html>
     <head>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -195,6 +198,7 @@ When complete, your HTML should look something like:
         </script>
     </body>
 </html>
+```
 
 NOTE: I highly recommend putting your initialization script in an external JS file.
 
