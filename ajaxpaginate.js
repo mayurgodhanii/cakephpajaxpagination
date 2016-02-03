@@ -40,6 +40,7 @@
         var url = el.attr('href').trim();
         if (url != "") {
             window.history.pushState('', '', url);
+            $(".paginator-load").show();
             $.ajax({
                 url: url
             }).done(function (data) {
@@ -57,6 +58,7 @@
                 if (typeof (dataSettings.afterSuccess) != "undefined" && dataSettings.afterSuccess !== null) {
                     dataSettings.afterSuccess();
                 }
+                $(".paginator-load").hide();
             });
         }
         return false;
@@ -77,6 +79,7 @@
         for (i = 0; i < l; i++) {
             if (typeof opt == 'object' || typeof opt == 'undefined') {
                 this_selecter = this.selector;
+                $(this_selecter).after('<div class="paginator-load"><span></span></div>');
                 _[i].cakephpPagination = new CakephpPagination(_[i], opt);
             }
             else
