@@ -104,7 +104,7 @@ When complete, your HTML should look something like:
 <html>
     <head>
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script type="text/javascript" src="cakephpAjaxPagination.js"></script>
+        <script type="text/javascript" src="ajaxpaginate.min.js"></script>
     </head>
     <body>
         <table class="ajax-pagination">
