@@ -202,8 +202,17 @@ When complete, your HTML should look something like:
 
 NOTE: I highly recommend putting your initialization script in an external JS file.
 
-Settings
+###Settings
 
-<strong>paginateDivId</strong>
-<strong>Type:</strong>String
-Pass id of pagination div
+<strong>paginateDivId</strong><br />
+<strong>Type:</strong>String<br />
+Pass id of pagination div<br />
+
+###Events
+
+```
+// afterSuccess event
+afterSuccess: function () {
+    //Your code
+}
+```
