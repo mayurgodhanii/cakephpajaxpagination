@@ -55,7 +55,6 @@ Set up your HTML markup.
     </tbody>
 </table>
 <div id="pagination-div">
-    <div id="pagination-div">
         <div class="m-pagination">
             <div class="paging">
                 <li class="first">
@@ -83,8 +82,7 @@ Set up your HTML markup.
                     <a href="">Next</a>
                 </li>
             </div>
-        </div>                    
-    </div>
+        </div>  
 </div>
 ```
 
@@ -158,7 +156,6 @@ When complete, your HTML should look something like:
             </tbody>
         </table>
         <div id="pagination-div">
-            <div id="pagination-div">
                 <div class="m-pagination">
                     <div class="paging">
                         <li class="first">
@@ -186,8 +183,7 @@ When complete, your HTML should look something like:
                             <a href="">Next</a>
                         </li>
                     </div>
-                </div>                    
-            </div>
+                </div> 
         </div>
         <script>
             $(function () {
