@@ -212,6 +212,7 @@ Pass id of pagination div<br />
 
 ```
 // afterSuccess event
+
 afterSuccess: function () {
     //Your code
 }
