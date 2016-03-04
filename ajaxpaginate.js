@@ -4,7 +4,7 @@
  ----------------------------------
  # Version: 1.0.0
  # Author: Mayur Godhani
- # Docs: https://github.com/mayurgodhanii
+ # Docs: https://github.com/mayurgodhanii/cakephpajaxpagination
  */
 
 
