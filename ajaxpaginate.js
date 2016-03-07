@@ -2,7 +2,7 @@
  ----------------------------------
  Ajax Pagination In CakePHP
  ----------------------------------
- # Version: 1.0.0
+ # Version: 2.0.0
  # Author: Mayur Godhani
  # Docs: https://github.com/mayurgodhanii/cakephpajaxpagination
  */
@@ -22,29 +22,34 @@
     'use strict';
 
     var CakephpPagination = window.CakephpPagination || {};
-    var this_selecter;
-    var dataSettings;
 
     CakephpPagination = (function () {
-        function CakephpPagination(element, settings) {
-            dataSettings = settings;
-            $('#pagination-div').on('click', 'a', function (e) {
-                loadData($(this), e);
+        function CakephpPagination(element, settings, this_selecter) {
+            $(this_selecter).after('<div class="paginator-load"><span></span></div>');
+
+            var dataSettings = settings;
+            if (typeof (dataSettings.paginateDivId) == "undefined") {
+                errorFound("Error: Parameter missing - paginateDivId");
+            }
+            $('#' + dataSettings.paginateDivId).on('click', 'a', function (e) {
+                loadData($(this), e, dataSettings, this_selecter);
             });
         }
         return CakephpPagination;
     }());
 
-    var loadData = function (el, e) {
+    var loadData = function (el, e, dataSettings, this_selecter) {
         e.preventDefault();
         var url = el.attr('href').trim();
         if (url != "") {
-            window.history.pushState('', '', url);
+            if (typeof (dataSettings.changeUrl) == "undefined") {
+                window.history.pushState('', '', url);
+            }
+
             $(".paginator-load").show();
             $.ajax({
                 url: url
             }).done(function (data) {
-                var found = $(this_selecter + ' tbody', data);
                 if (typeof (dataSettings.paginateDivId) != "undefined" && dataSettings.paginateDivId !== null) {
                     var paginateDivHtml = $("#" + dataSettings.paginateDivId, data);
                     $("#" + dataSettings.paginateDivId).html(paginateDivHtml);
@@ -52,9 +57,17 @@
                     errorFound("Error: Parameter missing - paginateDivId");
                 }
 
-                var found = $(this_selecter + ' tbody', data);
-                $(this_selecter + ' tbody').remove();
-                $(this_selecter).append(found);
+                if (typeof (dataSettings.paginateBase) != "undefined" && dataSettings.paginateBase == "div") {
+                    var found = $(this_selecter, data);
+                    $(this_selecter).html(found);
+                } else if (typeof (dataSettings.paginateBase) != "undefined" && dataSettings.paginateBase == "ul") {
+                    var found = $(this_selecter, data);
+                    $(this_selecter).html(found);
+                } else {
+                    var found = $(this_selecter + ' tbody', data);
+                    $(this_selecter + ' tbody').remove();
+                    $(this_selecter).append(found);
+                }
                 if (typeof (dataSettings.afterSuccess) != "undefined" && dataSettings.afterSuccess !== null) {
                     dataSettings.afterSuccess();
                 }
@@ -78,9 +91,7 @@
                 ret;
         for (i = 0; i < l; i++) {
             if (typeof opt == 'object' || typeof opt == 'undefined') {
-                this_selecter = this.selector;
-                $(this_selecter).after('<div class="paginator-load"><span></span></div>');
-                _[i].cakephpPagination = new CakephpPagination(_[i], opt);
+                _[i].cakephpPagination = new CakephpPagination(_[i], opt, this.selector);
             }
             else
                 ret = _[i].cakephpPagination[opt].apply(_[i].cakephpPagination, args);
