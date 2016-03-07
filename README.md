@@ -202,7 +202,15 @@ NOTE: I highly recommend putting your initialization script in an external JS fi
 
 <strong>paginateDivId</strong><br />
 <strong>Type:</strong>String<br />
-Pass id of pagination div<br />
+Pass id of pagination div<br /><br />
+
+<strong>paginateBase</strong><br />
+<strong>Type:</strong>String<br />
+Default is table, if you want to paginate on div then pass "div" or if you want to paginate with ul then pass "ul"<br /><br />
+
+<strong>changeUrl</strong><br />
+<strong>Type:</strong>Boolean<br />
+Default is true, if you do not want to change page URL then pass false<br />
 
 ###Events
 
