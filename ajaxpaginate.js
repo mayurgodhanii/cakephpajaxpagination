@@ -25,12 +25,11 @@
 
     CakephpPagination = (function () {
         function CakephpPagination(element, settings, this_selecter) {
-            $(this_selecter).after('<div class="paginator-load"><span></span></div>');
-
             var dataSettings = settings;
             if (typeof (dataSettings.paginateDivId) == "undefined") {
                 errorFound("Error: Parameter missing - paginateDivId");
             }
+            $(this_selecter).after('<div id="' + dataSettings.paginateDivId + '_load" class="paginator-load"><span></span></div>');
             $('#' + dataSettings.paginateDivId).on('click', 'a', function (e) {
                 loadData($(this), e, dataSettings, this_selecter);
             });
@@ -42,11 +41,11 @@
         e.preventDefault();
         var url = el.attr('href').trim();
         if (url != "") {
-            if (typeof (dataSettings.changeUrl) == "undefined") {
+            if (typeof (dataSettings.changeUrl) == "undefined" || dataSettings.changeUrl == true) {
                 window.history.pushState('', '', url);
             }
 
-            $(".paginator-load").show();
+            $('#' + dataSettings.paginateDivId + "_load").show();
             $.ajax({
                 url: url
             }).done(function (data) {
@@ -71,7 +70,7 @@
                 if (typeof (dataSettings.afterSuccess) != "undefined" && dataSettings.afterSuccess !== null) {
                     dataSettings.afterSuccess();
                 }
-                $(".paginator-load").hide();
+                $('#' + dataSettings.paginateDivId + "_load").hide();
             });
         }
         return false;
