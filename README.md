@@ -221,3 +221,15 @@ afterSuccess: function () {
     //Your code
 }
 ```
+
+###Modal Popup Pagination
+
+```
+    $(function () {
+        $('#ajax-pagination-modal').cakephpPagination({
+            paginateDivId: "pagination-div-modal",
+            paginateBase: "div",
+            changeUrl: false
+        });
+    });
+```
